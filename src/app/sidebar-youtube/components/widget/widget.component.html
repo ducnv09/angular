@@ -1,0 +1,24 @@
+<div class="container mat-elevation-z3" 
+    [style.background-color]="data().backgroundColor ?? 'white'"
+    [style.color]="data().color ?? 'inherit'"
+    cdkDrag
+    cdkDragPreviewContainer="parent"
+>
+    <div class="header">
+        <h3 style="margin: 0;">{{ data().label }}</h3>
+        <button mat-icon-button 
+            class="settings-button" 
+            (click)="showOptions.set(true)"
+            [style.--mdc-icon-button-icon-color]="data().color ?? 'inherit'"
+        >
+            <mat-icon>settings</mat-icon>
+        </button>
+    </div>
+    <ng-container [ngComponentOutlet]="data().content"></ng-container>
+
+    @if (showOptions()) {
+        <app-widget-options [(showOptions)]="showOptions" [data]="data()"></app-widget-options>
+    }
+
+    <div *cdkDragPlaceholder></div>
+</div>

@@ -1,0 +1,34 @@
+<div style="overflow: hidden;">
+    <div class="sidenav-header">
+        <img src="https://th.bing.com/th/id/R.bf7f58b4a8cb296d45a7868a08ea1d17?rik=Dj4XmVYWVENRjA&pid=ImgRaw&r=0"
+            alt="image" [width]="profilePicSize()" [height]="profilePicSize()">
+        <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
+            <h2>Nazarick mausoleum</h2>
+            <p>Akashi</p>
+        </div>
+    </div>
+    <mat-nav-list>
+        @for (item of menuItems(); track item.label) {
+            <app-menu-item [item]="item" [collapsed]="sideNavCollapsed()"></app-menu-item>
+
+            <!-- <a mat-list-item
+                class="menu-item"
+                [routerLink]="item.route" 
+                routerLinkActive="selected-menu-item"
+                #rla="routerLinkActive"
+                [activated]="rla.isActive" 
+            >
+                <mat-icon matListItemIcon 
+                    [fontSet]="
+                        rla.isActive ? 'material-icons' : 'material-icons-outlined'
+                    "
+                >
+                    {{ item.icon }}
+                </mat-icon>
+                <span matListItemTitle *ngIf="!sideNavCollapsed()">
+                    {{ item.label }}
+                </span>
+            </a> -->
+        }
+    </mat-nav-list>
+</div>

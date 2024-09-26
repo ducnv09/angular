@@ -1,0 +1,65 @@
+:host {
+
+    // css mat button
+    --mdc-protected-button-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+    --mdc-protected-button-disabled-container-elevation-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .2), 0px 0px 0px 0px rgba(0, 0, 0, .14), 0px 0px 0px 0px rgba(0, 0, 0, .12);
+    --mdc-protected-button-focus-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+    --mdc-protected-button-hover-container-elevation-shadow: 0px 3px 3px -2px rgba(0, 0, 0, .2), 0px 3px 4px 0px rgba(0, 0, 0, .14), 0px 1px 8px 0px rgba(0, 0, 0, .12);
+    --mdc-protected-button-pressed-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+    --mdc-protected-button-container-color: #faf9fd;
+    --mdc-protected-button-label-text-color: #005cbb;
+    --mdc-protected-button-disabled-container-color: rgba(26, 27, 31, .12);
+    --mdc-protected-button-disabled-label-text-color: rgba(26, 27, 31, .38);
+    --mdc-protected-button-label-text-font: Roboto, sans-serif;
+    --mdc-protected-button-label-text-size: .875rem;
+    --mdc-protected-button-label-text-tracking: .006rem;
+    --mdc-protected-button-label-text-weight: 500;
+    --mdc-protected-button-container-height: 40px;
+    --mdc-protected-button-container-shape: 9999px;
+
+    //css mat button toggle
+    --mat-standard-button-toggle-hover-state-layer-opacity: .08;
+    --mat-standard-button-toggle-focus-state-layer-opacity: .12;
+    --mat-standard-button-toggle-text-color: #1a1b1f;
+    --mat-standard-button-toggle-state-layer-color: #1a1b1f;
+    --mat-standard-button-toggle-selected-state-background-color: #dae2f9;
+    --mat-standard-button-toggle-selected-state-text-color: #131c2b;
+    --mat-standard-button-toggle-disabled-state-text-color: rgba(26, 27, 31, .38);
+    --mat-standard-button-toggle-disabled-selected-state-text-color: rgba(26, 27, 31, .38);
+    --mat-standard-button-toggle-disabled-selected-state-background-color: rgba(26, 27, 31, .12);
+    --mat-standard-button-toggle-divider-color: #74777f;
+    --mat-standard-button-toggle-label-text-font: Roboto, sans-serif;
+    --mat-standard-button-toggle-label-text-line-height: 1.25rem;
+    --mat-standard-button-toggle-label-text-size: .875rem;
+    --mat-standard-button-toggle-label-text-tracking: .006rem;
+    --mat-standard-button-toggle-label-text-weight: 500;
+    --mat-standard-button-toggle-height: 16px;
+    --mat-standard-button-toggle-shape: 9999px;
+    --mat-standard-button-toggle-background-color: transparent;
+    --mat-standard-button-toggle-disabled-state-background-color: transparent;  
+}
+
+.dashboard-widgets {
+    display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 150px;
+    gap: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+//drag and drop
+.cdk-drop-list-dragging {
+    opacity: 0.5;
+    // border-left: 5px solid #000;
+    // padding-left: 8px;
+
+    background-color: #000;
+    padding: 10px;
+}

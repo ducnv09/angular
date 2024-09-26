@@ -1,0 +1,152 @@
+<div class="flex justify-center h-screen items-center overflow-hidden">
+    <div class="container">
+        <!-- bìa -->
+        <div class="cover" [ngClass]="{'rotate-active': isLogin}">
+            <!-- ảnh mặt trước (register) -->
+            <div class="front">
+                <img src="https://cdn.wallpapersafari.com/57/7/1hlNkO.jpg" alt="image">
+                <div class="text">
+                    <span class="text-1">
+                        Share, Savor, and Create: Your Recipe Haven
+                        Awaits!
+                    </span>
+                    <span class="text-2">
+                        Let's get connected
+                    </span>
+                </div>
+            </div>
+
+            <!-- ảnh mặt sau (login) -->
+            <div class="back">
+                <img src="https://images.hdqwalls.com/download/sunrises-and-sunsets-scenery-grass-hill-5k-pk-1280x2120.jpg" alt="image">
+                <div class="text">
+                    <span class="text-1">
+                        Share, Savor, and Create: Your Recipe Haven
+                        Awaits!
+                    </span>
+                    <span class="text-2">
+                        Let's get connected
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- form (background)-->
+        <div class="form h-full">
+            <!-- nội dung form -->
+            <div class="form-content h-full">
+                <!-- đăng kí -->
+                <div class="register-form">
+                    <h1 class="text-lg font-bold text-center pb-8">
+                        Sign up
+                    </h1>
+
+                    <form (ngSubmit)="handleRegister()" [formGroup]="registerForm">
+                        <div class="mb-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="">Full Name</mat-label>
+                                <input matInput 
+                                    placeholder="Full Name" 
+                                    formControlName="fullname"
+                                    (blur)="updateErrorMessage()"
+                                    class="py-2 px-3 text-gray-200 mt-1">
+                                @if (registerForm.controls['fullname'].invalid) {
+                                    <mat-error>{{ fullnameErrorMessageRegister() }}</mat-error>
+                                }
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="">Email</mat-label>
+                                <input matInput placeholder="Email" 
+                                    formControlName="email"
+                                    (blur)="updateErrorMessage()"
+                                    class="py-2 px-3 text-gray-200 mt-1">
+                                @if (registerForm.controls['email'].invalid) {
+                                    <mat-error>{{ emailErrorMessageRegister() }}</mat-error>
+                                }
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="">Password</mat-label>
+                                <input matInput placeholder="Password" 
+                                    formControlName="password"
+                                    (blur)="updateErrorMessage()"
+                                    class="py-2 px-3 text-gray-200 mt-1">
+                                @if (registerForm.controls['password'].invalid) {
+                                    <mat-error>{{ passwordErrorMessageRegister() }}</mat-error>
+                                }
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button mat-raised-button color="primary" type="submit" class="w-full">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="flex items-center justify-center mt-9">
+                        Do you have account?
+                        <button mat-button color="primary" (click)="togglePanel()">
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+
+                <!-- login -->
+                <div class="login-form">
+                    <h1 class="text-lg font-bold text-center pb-8">
+                        Login
+                    </h1>
+
+                    <form (ngSubmit)="handleLogin()" [formGroup]="loginForm">
+                        <div class="mb-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="">Email</mat-label>
+                                <input matInput 
+                                    placeholder="Email" 
+                                    formControlName="email"
+                                    (blur)="updateErrorMessage()"
+                                    class="py-2 px-3 text-gray-200 mt-1">
+                                @if (registerForm.controls['email'].invalid) {
+                                    <mat-error>{{ emailErrorMessageLogin() }}</mat-error>
+                                }
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="">Password</mat-label>
+                                <input matInput 
+                                    placeholder="Password" 
+                                    formControlName="password"
+                                    (blur)="updateErrorMessage()"
+                                    class="py-2 px-3 text-gray-200 mt-1">
+                                @if (registerForm.controls['password'].invalid) {
+                                    <mat-error>{{ passwordErrorMessageLogin() }}</mat-error>
+                                }
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button mat-raised-button color="primary" type="submit" class="w-full">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="flex items-center justify-center mt-9">
+                        Don't you have an account?
+                        <button mat-button color="primary" (click)="togglePanel()">
+                            Sign up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

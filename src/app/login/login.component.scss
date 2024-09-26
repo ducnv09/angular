@@ -1,0 +1,17 @@
+.container-login {
+    position: relative;
+    background-image: url("https://i.pinimg.com/736x/a5/6e/66/a56e66e3ff275770797b761f452eb2f8.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
