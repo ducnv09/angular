@@ -1,0 +1,41 @@
+<!-- <div *ngIf="user.age >= 13; else noPG13">
+    bạn oke   
+</div>
+<ng-template #noPG13>
+    <div>haha</div>
+</ng-template> -->
+
+<div class="card">
+    <div class="card-header">
+        <!-- You have selected <span class="badge" style="background-color: blue;">{{ counter }}</span> items. -->
+        You have selected <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>
+    </div>
+    <div class="card-body">
+        There are <span class="badge badge-primary" style="background-color: blue;">{{ counter }}</span> items was
+        selected.
+    </div>
+    <div class="card-footer">
+        You have selected <span class="badge badge-primary" style="background-color: blue;">{{ counter }}</span> items.
+    </div>
+</div>
+
+<ng-template #counterTmpl>
+    <span class="badge badge-primary" style="background-color: blue;">{{ counter }}</span> items.
+</ng-template>
+<br>
+<!-- <ul class="nav nav-tabs mb-7">
+    <li class="nav-item" *ngFor="let link of navs">
+        <a class="nav-link" href="#">{{ link }}</a>
+    </li>
+</ul> -->
+<!-- <ng-template #linkTemplate>
+    <h4>Some link</h4>
+</ng-template> -->
+<!-- <ng-template #linkTemplate let-l="link"> -->
+<ng-template #linkTemplate let-l>
+    <h4>{{ l }}</h4>
+</ng-template>
+<!-- <tabs [navs]="navs" [linkTemplate]="linkTemplate"></tabs> -->
+<br>
+<br>
+<br>

@@ -1,0 +1,19 @@
+<div class="row" *ngIf="featureArticles$ | async as featureArticles else loadingTmpl">
+    <div class="col-md-3" *ngFor="let featureArticle of featureArticles">
+        <div class="card" text-center>
+            <div class="card-header">
+                {{ featureArticle.title }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ featureArticle.content }}</p>
+                <a [routerLink]="featureArticle.slug" 
+                    class="btn btn-primary">
+                    Xem {{ featureArticle.title }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loadingTmpl>
+    Loading...
+</ng-template>

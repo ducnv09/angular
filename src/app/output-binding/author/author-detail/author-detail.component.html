@@ -1,0 +1,5 @@
+<div>
+    {{ author.firstName }} {{ author.lastName }}
+    <button style="margin-left: 1rem;" (click)="select.emit(author)">Select</button>
+    <button style="margin-left: 1rem;" (click)="delete.emit(author.id)">x</button>
+</div>

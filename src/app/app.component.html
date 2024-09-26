@@ -1,0 +1,123 @@
+AppComponent {{ title }}
+<br>
+cách1
+<br>
+<app-hello></app-hello>
+<br>
+cách2
+<br>
+<p>{{ user.name }}</p>
+
+<input [type]="inputType" [value]="user.name">
+
+<button type="button" (click)="handler($event)">Click me</button>
+<br>
+two-way binding
+<br>
+<input type="text" [(ngModel)]="user.name" />
+<br>
+// viết tắt của
+<br>
+<input type="text" [ngModel]="user.name" (ngModelChange)="user.name = $event">
+
+<br>
+<app-hello *ngIf="user.age >= 18; else under18" [name]="user.name"></app-hello>
+
+<app-hello [hidden]="user.age >= 18" [name]="user.name"></app-hello>
+
+
+<!-- bản chất  -->
+<!-- <ng-template [ngIf]="user.age >= 18" [ngIfElse]="under18">
+  <app-hello *ngIf="user.age >= 18" [name]="user.name"></app-hello>
+</ng-template> -->
+
+<ng-template #under18>
+  <div>
+    You are too young to see this content
+  </div>
+</ng-template>
+
+<!-- <div *ngIf="user.age < 18">
+  You too young
+</div> -->
+<br>
+<button (click)="user.age = user.age - 1">-</button>
+Age: {{user.age}}
+<button (click)="user.age = user.age + 1">+</button>
+
+<ul>
+  <ng-container *ngIf="user1.length > 1; else noUser">
+    <li
+      *ngFor="let user of user1; index as idx; count as total; first as isFirst; last as isLast; even as isEven; odd as isOdd">
+      <span>{{ user.id }} - {{ user.name }} - {{ user.phone }}</span>
+      <br>
+      <span>at index {{ idx }}</span>
+      <br>
+      <span>I am {{ isEven ? 'even number' : 'odd number' }}</span>
+      <br>
+      <span *ngIf="isLast">I am last</span>
+      <br>
+      <span *ngIf="isFirst">I am first</span>
+    </li>
+  </ng-container>
+  <ng-template #noUser>
+    No user
+  </ng-template>
+</ul>
+
+<!-- cách 2 -->
+
+<!-- <ul>
+  <ng-template ngFor [ngForOf]="user1" let-u let-idx="index" let-total="count" let-isFirst="first" let-isLast="last"
+    let-isEven="even" let-isOdd="odd">
+    <li>
+      <span>{{ u.id }} - {{ u.name }} - {{ u.phone }}</span>
+      <br>
+      <span>at index {{ idx }}</span>
+      <br>
+      <span>I am {{ isEven ? 'even number' : 'odd number' }}</span>
+      <br>
+      <span *ngIf="isLast">I am last</span>
+      <br>
+      <span *ngIf="isFirst">I am first</span>
+    </li>
+  </ng-template>
+</ul> -->
+
+<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">{{ tag }}</button>
+
+<app-class-binding></app-class-binding>
+<br>
+<!-- <app-style-binding></app-style-binding> -->
+<br>
+<app-progress-bar></app-progress-bar>
+<br>
+<app-progress-bar [progress]="currentProgress" [progressColor]="'blue'"></app-progress-bar>
+<br>
+<button (click)="currentProgress = currentProgress + 1">Increase progress</button>
+<br>
+<br>
+<app-author-list></app-author-list>
+<br>
+<app-two-way-binding></app-two-way-binding>
+<br>
+<br>
+<app-view-child></app-view-child>
+<flex-container flexDirection="column">
+  <p>Some</p>
+  <p>Thing</p>
+</flex-container>
+<br>
+<app-content-projection></app-content-projection>
+<br>
+<app-ng-template></app-ng-template>
+<br>
+<app-tabs></app-tabs>
+<br>
+<br>
+<app-ng-router></app-ng-router>
+<br>
+<br>
+<app-router-feature-module></app-router-feature-module>
+<br>
+<br>

@@ -1,0 +1,17 @@
+<!-- cách 1 -->
+<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning"></div>
+
+<!-- cách 2: array -->
+<!-- <div class="box" [class]="['red-border', 'yellow-background']"></div> -->
+
+<!-- cách 3: object -->
+<!-- <div class="box" [class]="{'red-border': isDanger, 'yellow-background': isWarning}"></div> -->
+
+<!-- cách 4 -->
+<!-- <div [class]="classes"></div> -->
+
+
+<br>
+<button (click)="isDanger = !isDanger">Toggle Danger</button>
+<br>
+<button (click)="isWarning = !isWarning">Toggle Warning</button>

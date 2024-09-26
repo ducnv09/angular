@@ -1,0 +1,23 @@
+<!-- cách 1 -->
+<!-- <p [style.color]="'red'" [style.background-color]="'yellow'" [style.fontSize.em]="2">
+    hello
+</p> -->
+
+
+<!-- cách 2 -->
+<!-- <p [style]="{
+    color: 'red',
+    backgroundColor: 'yellow',
+    fontSize: '2rem'
+}">
+    hello
+</p> -->
+
+<!-- cách 3 -->
+<p [style]="{
+    color: 'var(--text-color)',
+    backgroundColor: 'yellow',
+    fontSize: '2rem'
+}">
+    hello
+</p>

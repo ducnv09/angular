@@ -1,0 +1,18 @@
+<!-- <app-toggle-v1 #toggleComp [(checked)]="isChecked"></app-toggle-v1> -->
+<!-- <div *ngIf="true">
+    <app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+</div> -->
+<h1 class="underline">oke</h1>
+<input #nameInput type="text" [(ngModel)]="name">
+<br>
+<!-- <app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+<br>
+<button #toggleButton (click)="toggleComp.toggle()">click me</button> -->
+
+<button (click)="showLast = !showLast">toggle show last</button>
+<app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+<app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+<app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+<ng-container *ngIf="showLast">
+    <app-toggle-v1 [(checked)]="isChecked"></app-toggle-v1>
+</ng-container>

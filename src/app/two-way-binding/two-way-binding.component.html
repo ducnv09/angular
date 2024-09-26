@@ -1,0 +1,9 @@
+<p>{{ name }}</p>
+<br>
+<input type="text" [(ngModel)]="name">
+<br>
+<br>
+<input type="text" [ngModel]="name" (ngModelChange)="name = $event">
+<br>
+<br>
+<app-toggle [(checked)]="isChecked"></app-toggle>

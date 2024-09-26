@@ -1,0 +1,36 @@
+<!-- <app-tab-group [(activeIndex)]="currentIndex">
+    <app-tab-panel title="First tab">First tab content</app-tab-panel>
+    <app-tab-panel title="Second tab">Second tab content</app-tab-panel>
+    <app-tab-panel title="Third tab">Third tab content</app-tab-panel>
+    <app-tab-panel title="Fourth tab">Fourth tab content</app-tab-panel>
+</app-tab-group>
+
+<app-tab-bs-group [(activeIndex)]="currentIndex">
+    <app-tab-panel title="First tab">First tab content</app-tab-panel>
+    <app-tab-panel title="Second tab">Second tab content</app-tab-panel>
+    <app-tab-panel title="Third tab">Third tab content</app-tab-panel>
+    <app-tab-panel title="Fourth tab">Fourth tab content</app-tab-panel>
+</app-tab-bs-group> -->
+
+<!-- bài 17: Content Child & Content Children  -->
+
+<app-tab-bs-group [(activeIndex)]="currentIndex">
+    <app-tab-panel title="First tab">
+        <ng-template>
+            First tab content
+            <app-counter></app-counter>
+        </ng-template>
+    </app-tab-panel>
+    <app-tab-panel title="Second tab">
+        Second tab content
+        <app-counter></app-counter>
+    </app-tab-panel>
+    <app-tab-panel title="Third tab">
+        Third tab content
+        <app-counter></app-counter>
+    </app-tab-panel>
+    <app-tab-panel title="Fourth tab">
+        Fourth tab content
+        <app-counter></app-counter>
+    </app-tab-panel>
+</app-tab-bs-group>
