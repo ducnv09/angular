@@ -1,0 +1,57 @@
+<ejs-treegrid 
+    [dataSource]="data"
+    childMapping="subtasks"
+    [treeColumnIndex]="1"
+    [allowPaging]="true"
+    [pageSettings]="pageSettings"
+    [allowSorting]="true"
+    [sortSettings]="sortSettings"
+    [allowFiltering]="true"
+>
+    <e-columns>
+        <e-column
+            field="taskID"
+            headerText="Task ID"
+            textAlign="left"
+            width="80"
+        ></e-column>
+        <e-column
+            field="taskName"
+            headerText="Task Name"
+            textAlign="left"
+            width="80"
+        ></e-column>
+        <e-column
+            field="startDate"
+            headerText="Start Date"
+            textAlign="left"
+            width="100"
+            format="yMd"
+        ></e-column>
+        <e-column
+            field="endDate"
+            headerText="End Date"
+            textAlign="left"
+            width="100"
+            format="yMd"
+        ></e-column>
+        <e-column
+            field="duration"
+            headerText="Duration"
+            textAlign="left"
+            width="80"
+        ></e-column>
+        <e-column
+            field="progress"
+            headerText="Progress"
+            textAlign="left"
+            width="80"
+        ></e-column>
+        <e-column
+            field="priority"
+            headerText="Priority"
+            textAlign="left"
+            width="80"
+        ></e-column>
+    </e-columns>
+</ejs-treegrid>

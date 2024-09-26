@@ -1,0 +1,16 @@
+th {
+    background-color: aqua !important;
+    color: #fff;
+}
+
+.mat-mdc-header-row {
+    height: 35px !important;
+}
+
+.mat-mdc-row {
+    height: 70px !important;
+}
+
+.mat-mdc-row:nth-child(even) {
+    background-color: rgb(209, 255, 240) ;
+}

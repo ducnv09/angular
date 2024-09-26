@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumn;"></tr>
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>TITLE</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+    <ng-container matColumnDef="body">
+        <th mat-header-cell *matHeaderCellDef>BODY</th>
+        <td mat-cell *matCellDef="let element">{{ element.body }}</td>
+    </ng-container>
+</table>
+
+<!-- <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let node of data">
+        <tr>
+          <td>
+            <span (click)="toggleNode(node)" *ngIf="node.children">
+              {{ node.expanded ? '▼' : '▶' }}
+            </span>
+            {{ node.name }}
+          </td>
+        </tr>
+        <ng-container *ngIf="node.expanded">
+          <tr *ngFor="let child of node.children">
+            <td style="padding-left: 20px;">{{ child.name }}</td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table> -->

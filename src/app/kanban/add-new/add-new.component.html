@@ -1,0 +1,112 @@
+<div #form class="form">
+    <!-- <mat-form-field class="" style="width: 100%; border-radius: 0.5rem !important; border: none !important;"> -->
+    <div
+        style="
+            width: 100%; 
+            min-width: 15rem; 
+            border-radius: 0.5rem; 
+            border: none; 
+            margin-bottom: 10px; 
+            min-height: 80px;"
+        >
+        <textarea #textarea 
+            style="
+                min-width: 15rem;
+                width: 100%;
+                border-radius: 0.5rem; 
+                padding: 10px; 
+                border: 1px solid #ccc; 
+                min-height: 80px;
+                resize: none;
+                overflow: hidden;   
+                outline: none;
+            " 
+            [placeholder]="placeholder" 
+            [(ngModel)]="input" 
+            (keyup.enter)="addNew()"
+            (input)="adjustTextareaHeight($event)" 
+            rows="3" 
+            autocomplete="off">
+        </textarea>
+    </div>
+
+    <div class="d-flex row w-100">
+        <div class="col-6 pe-0" style="width: max-content;">
+            <button mat-flat-button color="primary" (click)="addNew()">
+                <mat-icon aria-hidden="false" aria-label="Add">
+                    add
+                </mat-icon>
+                Add {{ placeholder }}
+            </button>
+        </div>
+        <div class="col-2">
+            <button style="height: 100%; border: none; border-radius: 5px;" 
+                (click)="cancel()" 
+                class="btn-close1">
+                <mat-icon class="m-0" style="display: flex; color: #5d5d5d ;">
+                    close
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<!--<ng-container *ngIf="isFormVisible; else showAddButton">
+        <div #form class="form">
+            <!-- <mat-form-field class="" style="width: 100%; border-radius: 0.5rem !important; border: none !important;"> 
+            <div style="width: 100%; min-width: 15rem; border-radius: 0.5rem; border: none; margin-bottom: 10px; min-height: 80px;">
+                <textarea #textarea
+                    style="
+                        min-width: 15rem;
+                        width: 100%;
+                        border-radius: 0.5rem; 
+                        padding: 10px; 
+                        border: 1px solid #ccc; 
+                        min-height: 80px;
+                        resize: none;
+                        overflow: hidden;   
+                    "
+                    [placeholder]="placeholder"
+                    [(ngModel)]="input"
+                    (keyup.enter)="addNew()"
+                    (input)="adjustTextareaHeight($event)"
+                    rows="3"
+                    autocomplete="off"
+                    ></textarea>
+            </div>
+
+            <div class="d-flex row w-100">
+                <div class="col-6 pe-0" style="width: max-content;">
+                    <button mat-flat-button color="primary" (click)="addNew()" >
+                        <mat-icon aria-hidden="false" aria-label="Add">
+                            add 
+                        </mat-icon>
+                        Add {{ placeholder }}
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button style="height: 100%; border: none; border-radius: 5px;" 
+                        (click)="closeForm()"
+                        class="btn-close1">
+                        <mat-icon class="m-0" style="display: flex; color: #5d5d5d ;">close</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    
+    <ng-template #showAddButton>
+        <div class="pe-0 w-100" style="width: max-content;">
+            <button (click)="toggleForm()" class="btn-open">
+                <mat-icon aria-hidden="false" aria-label="Add" 
+                    style="
+                        font-size: 18px;
+                        display: flex;
+                        align-items: center;
+                    "
+                >
+                    add 
+                </mat-icon>
+                Add {{ placeholder }}
+            </button>
+        </div>
+    </ng-template>-->

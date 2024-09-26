@@ -1,0 +1,108 @@
+<div cdkDropListGroup 
+    class="parent"  
+    
+    style="overflow-x: auto; display: flex; flex-wrap: nowrap; min-height: 80vh; padding: 1rem;">
+    <mat-card class="container" *ngFor="let list of jobListsData; let i = index">
+        <ng-container *ngIf="editListName === list.id; else displayListName">
+            <input #editListName
+                class="edit-list"
+                type="text"
+                [(ngModel)]="list.name" 
+                (blur)="saveListName(list)" 
+                (keydown.enter)="saveListName(list)"
+            >
+        </ng-container>
+        <ng-template #displayListName>
+            <h2 class="list-title">
+                <span (click)="openEditListName(list.id)" 
+                    style="
+                        width: 100%;
+                        cursor: pointer;
+                    "
+                >
+                    {{ list.name }} ({{ list.jobs.length }})
+                </span>
+                <mat-icon class="icon-delete" 
+                    aria-hidden="false"
+                    aria-label="Delete"
+                    color="warn"
+                    (click)="deleteList(i)"
+                >
+                    delete
+                </mat-icon>
+            </h2>
+        </ng-template>
+
+        <div
+            class="list"
+            #jobList
+            cdkDropList
+            [cdkDropListData]="list.jobs"
+            (cdkDropListDropped)="drop($event)"
+        >   
+            <div    
+                class="box"
+                *ngFor="let item of list.jobs; let j = index"
+                cdkDrag
+                (cdkDragMoved)="onDragMoved($event)"
+                [cdkDragData]="item"
+            >
+                <div class="custom-placeholder" *cdkDragPlaceholder></div>
+                {{ item }}
+                <div class="icon">
+                    <mat-icon class="icon-edit"
+                        aria-hidden="false"
+                        aria-label="Edit"
+                        color="primary"
+                        (click)="editJob(i, j, $event)"
+                    >
+                        edit
+                    </mat-icon>
+                    <mat-icon class="icon-delete"
+                        aria-hidden="false"
+                        aria-label="Delete"
+                        color="warn"
+                        (click)="deleteJob(i, j)"
+                    >
+                        delete
+                    </mat-icon>
+                </div>
+            </div>
+            <app-add-new *ngIf="showAddForm[i]" 
+                (formClosed)="closeAddForm(i)"
+                placeholder="job" 
+                [listIndex]="i"></app-add-new>
+        </div>
+        <div>
+            <button mat-button *ngIf="!showAddForm[i]" (click)="openAddForm(i)">
+                <mat-icon aria-hidden="false" aria-label="Add">
+                    add
+                </mat-icon>
+                Add Job
+            </button>
+        </div>
+        <!-- <div>
+            <app-add-new placeholder="job" [listIndex]="i"></app-add-new>
+        </div> -->
+    </mat-card>
+    <div class="add-list" 
+        style="
+            width: 15rem;
+            background-color: #F9F9F9;
+            height: fit-content;
+            width: fit-content;
+            border-radius: 5px;
+        "
+    >
+        <app-add-new *ngIf="showAddListForm" (formClosed)="closeAddListForm()" placeholder="list"></app-add-new>
+        <button mat-button *ngIf="!showAddListForm" (click)="openAddListForm()">
+            <mat-icon aria-hidden="false" aria-label="Add">
+                add
+            </mat-icon>
+            Add List
+        </button>
+    </div>
+    <!-- <div class="add-list" style="width: 15rem;">
+        <app-add-new placeholder="list"></app-add-new>
+    </div> -->
+</div>

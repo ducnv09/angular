@@ -1,0 +1,16 @@
+<mat-dialog-content class="p-0 bg-custom">
+    <textarea #jobInput 
+        class="job-input"
+        [(ngModel)]="data.job"
+        matInput
+        autocomplete="off"
+        ></textarea>
+</mat-dialog-content>
+<mat-dialog-actions class="p-0 bg-custom">
+    <button mat-button (click)="onNoClick()" class="bg-secondary text-white btn-hover">
+        Cancel
+    </button>
+    <button mat-button [mat-dialog-close]="data.job" class="bg-primary text-white btn-hover">
+        Edit
+    </button>
+</mat-dialog-actions>

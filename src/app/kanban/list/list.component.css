@@ -1,0 +1,130 @@
+.container {
+    width: 280px;
+    flex-shrink: 0; /* Prevent shrinking */
+    /* max-width: 100%; */
+    margin: 0 1rem 5px 0;
+    /* vertical-align: top; */
+    background-color: #f9f9f9;
+    padding: 10px;
+    height: fit-content;
+    max-height: 83vh;
+    overflow: hidden;
+}
+
+.list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-list {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline-color: #0022ff;
+    font-size: 18px;
+}
+
+.list {
+    border-radius: 4px;
+    display: block;
+    min-height: 1px;/* tại khoảng cách để kéo được */
+    border: none;
+    transition: all 0.2s ease-in-out;
+    padding-top: 5px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 83vh;
+    width: 100%;
+}
+
+
+.list.active {
+    min-height: 45px;/* tại khoảng cách để kéo được */
+    border: solid 1px #ccc;
+    background-color: #f3f3f3;
+}
+
+.box {
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Break long words onto the next line */
+    padding: 10px;
+    min-height: 45px;
+    box-sizing: border-box; 
+    cursor: pointer;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    position: relative;
+    min-width: 15rem;
+    width: 100%;
+}
+
+.box:hover {
+    border: 1px solid #0022ff;
+
+}
+
+/* .box:first-child {
+    margin-top: 10px;
+}  */
+
+/* .box:last-child {
+    margin-bottom: 0px;
+}  */
+
+.box .icon {
+    visibility: hidden;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+.box:hover .icon-edit,
+.box:hover .icon-delete,
+.list-title > .icon-delete {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.icon > .icon-edit:hover,
+.icon > .icon-delete:hover,
+.list-title > .icon-delete:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    opacity: 0.7;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1), opacity 0.2s ease-in-out;
+    border-radius: 0.5rem;
+    /* box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); */
+}
+
+.cdk-drag-animating {
+    transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1), opacity 0.2s ease-in-out;
+}
+
+.custom-placeholder {
+    background: #f9f9f9;
+    min-height: 45px;
+    /* border-bottom: solid 1px #ccc; */
+    transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1);
+    margin-bottom: 10px;
+}
+
+.list.cdk-drop-list-dragging .box:not(.cdk-drag-placeholder) {
+    /* transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1); */
+}
+
+.add-list {
+    display: inline-block;
+    width: 200px;
+}

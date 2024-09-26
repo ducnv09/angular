@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="header">
+    Kanban board
+    <span style="flex: 1;"></span>
+    <button mat-icon-button class="warn" (click)="deleteAll()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="wrapper">
+    <app-list></app-list>
+</div>

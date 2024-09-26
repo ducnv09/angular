@@ -1,0 +1,22 @@
+.btn-close1 {
+    background-color: transparent;
+}
+
+.btn-close1:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+.btn-open {
+    display: flex;
+    align-items: center;
+    min-width: 15rem;
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.btn-open:hover {
+    background-color: rgb(229, 229, 229);
+}

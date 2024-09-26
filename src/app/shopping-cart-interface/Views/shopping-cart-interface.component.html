@@ -1,0 +1,17 @@
+<main>
+    <app-shopping-cart-header [numberItems]="numberItems"></app-shopping-cart-header>
+
+    <!-- lấy biến đặt @output ()-->
+    <app-shopping-cart-product-list 
+        [products]="products"
+        (onUpdateQuantity)="handleUpdateQuantity($event)"
+        (onRemoveProduct)="handleRemoveProduct($event)"    
+    ></app-shopping-cart-product-list>
+
+    <app-shopping-cart-summary 
+        (onApplyPromoCode)="handleApplyPromoCode($event)"
+        [subTotal]="subTotal"
+        [discount]="discount"
+        [tax]="tax"
+    ></app-shopping-cart-summary>
+</main>
