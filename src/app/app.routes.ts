@@ -19,11 +19,11 @@ import { TableTreeComponent } from './table-tree/table-tree.component';
 // }
 
 export const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'dashboard'
-  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'dashboard'
+  // },
   // ...menuItems.map((i) => itemToSource(i)),
   {
     path: 'dashboard',
