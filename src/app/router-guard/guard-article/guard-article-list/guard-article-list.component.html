@@ -1,0 +1,21 @@
+<ul>
+    <li *ngFor="let article of articles$ | async"
+        style="
+            border: 1px solid #000;
+            padding: 20px;
+            margin-bottom: 10px;    
+        "
+    >
+        {{ article.title }}
+        <br>
+        <a 
+            style="
+                cursor: pointer;
+                text-decoration: underline;
+            "
+            (click)="onReadMoreClick(article.slug)"
+        >
+            Read more
+        </a>
+    </li>
+</ul>

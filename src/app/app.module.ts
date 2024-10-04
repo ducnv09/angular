@@ -31,6 +31,12 @@ import { ChildHomeComponent } from './ng-router/home/child-home/child-home.compo
 import { ArticleDetailComponent } from './ng-router/article-detail/article-detail.component';
 import { RouterFeatureModuleComponent } from './router-feature-module/router-feature-module.component';
 import { FeatureArticleModule } from './router-feature-module/feature-article.module';
+import { RouterLazyLoadingComponent } from './router-lazy-loading/router-lazy-loading.component';
+import { LazyHomeComponent } from './router-lazy-loading/lazy-home/lazy-home.component';
+import { LazyArticleModule } from './router-lazy-loading/lazy-article/lazy-article.module';
+import { RouterGuardComponent } from './router-guard/router-guard.component';
+import { GuardHomeComponent } from './router-guard/guard-home/guard-home.component';
+import { GuardArticleModule } from './router-guard/guard-article/guard-article.module';
 
 @NgModule({
   declarations: [
@@ -57,14 +63,20 @@ import { FeatureArticleModule } from './router-feature-module/feature-article.mo
     HomeComponent,
     ChildHomeComponent,
     ArticleDetailComponent,
-    RouterFeatureModuleComponent
+    RouterFeatureModuleComponent,
+    RouterLazyLoadingComponent,
+    LazyHomeComponent,
+    RouterGuardComponent,
+    GuardHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MatIconModule,
-    FeatureArticleModule 
+    FeatureArticleModule,
+    // LazyArticleModule,
+    GuardArticleModule
   ],
   providers: [
     provideAnimationsAsync()
