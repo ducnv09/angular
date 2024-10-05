@@ -8,7 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CustomSidenavComponent } from "./components/custom-sidenav/custom-sidenav.component";
 import { RouterModule } from '@angular/router';
-import { AuthService } from '../login/services/auth-service.service';
+import { AuthService } from '../login2/service/auth-service.service';
+// import { AuthService } from '../login/services/auth-service.service';
 
 @Component({
   selector: 'app-sidebar-youtube',
