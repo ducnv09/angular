@@ -1,7 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 @include mat.core();
 
 html,
@@ -13,6 +10,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   --primary-color: #cc0000;
 }
+
+
 
 $mat-primary: (
     main: #cc0000,
@@ -41,8 +40,26 @@ $my-theme: mat.define-light-theme(
     )
 );
 
+// $azure-palette: mat.define-palette(mat.$blue-palette, 500, 300, 700);
+
+// $custom-theme: mat.define-light-theme(
+//     (
+//         color: (
+//             theme-type: light,
+//             primary: mat.$blue-palette,
+//             use-system-variables: true,
+//         )
+//     )
+// );
+
+// html {
+//     @include mat.core-theme($custom-theme);
+
+// }
+
 @include mat.all-component-themes($my-theme);
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+

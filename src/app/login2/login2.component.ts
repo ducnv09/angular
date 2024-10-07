@@ -205,6 +205,7 @@ export class Login2Component {
   // đăng kí
   handleRegister() {
     this.authService.register(this.registerForm.value).subscribe();
+    window.location.reload();
   }
 
   //login

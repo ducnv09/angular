@@ -29,7 +29,7 @@ export class AuthService {
     }
 
     register(user: any): Observable<any> {
-        return this.http.post<any>(`${this.baseUrl}/identity/user`, user);
+        return this.http.post<any>(`${this.baseUrl}/identity/users`, user);
     }
 
     getUserInfo(): Observable<any> {
