@@ -25,4 +25,8 @@ export class GuardArticleListComponent {
   onReadMoreClick(slug: string) {
     this.router.navigate(['/guardArticles', slug]);
   }
+
+  onEditClick(slug: string) {
+    this.router.navigate(['/guardArticles', slug, 'edit']);
+  }
 }

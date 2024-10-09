@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ClassBindingComponent } from './class-binding/class-binding.component';
@@ -76,7 +76,8 @@ import { GuardArticleModule } from './router-guard/guard-article/guard-article.m
     MatIconModule,
     FeatureArticleModule,
     // LazyArticleModule,
-    GuardArticleModule
+    GuardArticleModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()

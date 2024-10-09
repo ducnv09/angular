@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'app/router-guard/models/article';
 import { ArticleService } from 'app/router-guard/services/article.service';
-import { filter, Observable, pluck, switchMap } from 'rxjs';
+import { delay, filter, Observable, pluck, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-guard-article-detail',
@@ -25,10 +25,14 @@ export class GuardArticleDetailComponent {
     // console.log(this.router.snapshot.params);
     // console.log(this.router.snapshot.paramMap);
 
-    this.article$ = this.router.params.pipe(
-      pluck('slug'),
-      switchMap(slug => this.articleService.getArticle(slug)),
-      filter(article => !!article)
-    ) 
+    // this.article$ = this.router.params.pipe(
+    //   pluck('slug'),
+    //   switchMap(slug => this.articleService.getArticle(slug)),
+    //   filter(article => !!article),
+    //   delay(2000),
+    // ) 
+
+    
+    this.article$ = this.router.data.pipe(pluck('article'));
   }
 }

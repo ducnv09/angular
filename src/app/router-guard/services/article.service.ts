@@ -13,12 +13,12 @@ export class ArticleService {
             {
               title:  'Title 1',
               body: 'Lorem ipsum dolor',
-              slug: 'tittle-1'
+              slug: 'title-1'
             },
             {
               title:  'Title 2',
               body: 'Lorem ipsum dolor',
-              slug: 'tittle-2'
+              slug: 'title-2'
             }
           ])
     }

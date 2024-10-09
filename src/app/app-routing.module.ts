@@ -47,7 +47,8 @@ const routes: Routes = [
       feature: 'guardArticles',
       permissions: 'articles-read'
     },
-    canActivate: [ArticlesGuard]
+    // canActivate: [ArticlesGuard],
+    canLoad: [ArticlesGuard],
   },
 
   // redirect
