@@ -37,6 +37,13 @@ import { LazyArticleModule } from './router-lazy-loading/lazy-article/lazy-artic
 import { RouterGuardComponent } from './router-guard/router-guard.component';
 import { GuardHomeComponent } from './router-guard/guard-home/guard-home.component';
 import { GuardArticleModule } from './router-guard/guard-article/guard-article.module';
+import { FormComponent } from './form/form.component';
+import { SignInComponent } from './form/sign-in/sign-in.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +75,9 @@ import { GuardArticleModule } from './router-guard/guard-article/guard-article.m
     LazyHomeComponent,
     RouterGuardComponent,
     GuardHomeComponent,
+    FormComponent,
+    SignInComponent,
+    SignInRfComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +87,11 @@ import { GuardArticleModule } from './router-guard/guard-article/guard-article.m
     FeatureArticleModule,
     // LazyArticleModule,
     GuardArticleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()

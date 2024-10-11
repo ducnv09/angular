@@ -1,0 +1,55 @@
+<div class="container">
+    <!-- <form class="sign-in-form" #signInForm="ngForm" (submit)="onSubmit(signInForm)"> -->
+    <form class="sign-in-form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+        <h2>Sign in</h2>
+        <div class="row-control">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <!-- <input matInput placeholder="Username" ngModel name="username"/> -->
+                <!-- <input matInput placeholder="Username" [ngModel]="userInfo.userName" name="username"/> -->
+                <input matInput 
+                    placeholder="Username" 
+                    [(ngModel)]="userInfo.userName" 
+                    name="username"
+                    minlength="6"
+                    maxlength="32"
+                    [pattern]="usernamePattern"
+                    #username="ngModel"
+                    required/>
+                <!-- <mat-error *ngIf="username.errors?.['required']">Username is required</mat-error> -->
+                <mat-error *ngIf="username.touched && !username.valid">
+                    <span *ngIf="username.errors?.['required']">Username is required</span>
+                    <span *ngIf="username.errors?.['minlength'] || username.errors?.['maxlength']">Length from 6 to 32 characters</span>
+                    <span *ngIf="!(username.errors?.['minlength'] || username.errors?.['maxlength']) && username.errors?.['pattern']">Only alphabet</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row-control"> 
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <!-- <input type="password" matInput placeholder="Password" ngModel name="password"/> -->
+                <!-- <input type="password" matInput placeholder="Password" [ngModel]="userInfo.password" name="password"/> -->
+                <input type="password" matInput placeholder="Password" [(ngModel)]="userInfo.password" name="password"/>
+            </mat-form-field>
+        </div>
+        <div class="row-control">
+            <!-- <mat-checkbox color="primary" ngModel name="remember">Remember me</mat-checkbox> -->
+            <!-- <mat-checkbox color="primary" [ngModel]="userInfo.rememberMe" name="remember">Remember me</mat-checkbox> -->
+            <mat-checkbox color="primary" [(ngModel)]="userInfo.rememberMe" name="remember">Remember me</mat-checkbox>
+        </div>
+        <div class="row-control row-actions">
+            <button mat-raised-button color="primary" type="submit">
+                Sign in
+            </button>       
+        </div>
+        <pre>
+            {{ signInForm.value | json }}
+        </pre>
+        <pre>
+            user infor {{ userInfo | json }}
+        </pre>
+        <pre>
+            {{ username.errors | json }}
+        </pre>
+    </form>
+</div>

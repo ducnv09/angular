@@ -6,6 +6,8 @@ import { ArticleDetailComponent } from './ng-router/article-detail/article-detai
 import { LazyHomeComponent } from './router-lazy-loading/lazy-home/lazy-home.component';
 import { GuardHomeComponent } from './router-guard/guard-home/guard-home.component';
 import { ArticlesGuard } from './router-guard/guard/articles.guard';
+import { SignInComponent } from './form/sign-in/sign-in.component';
+import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
 
 const routes: Routes = [
   // {
@@ -30,27 +32,34 @@ const routes: Routes = [
   //   path: "",
   //   component: LazyHomeComponent,
   // },
-  {
-    path: "",
-    component: GuardHomeComponent,
-  },
+  // {
+  //   path: "",
+  //   component: GuardHomeComponent,
+  // },
 
 //lazy load
   // {
   //   path: "lazyArticles",
   //   loadChildren: () => import('./router-lazy-loading/lazy-article/lazy-article.module').then(m => m.LazyArticleModule)
   // },
+  // {
+  //   path: "guardArticles",
+  //   loadChildren: () => import('./router-guard/guard-article/guard-article.module').then(m => m.GuardArticleModule),
+  //   data: { //có thêm thông tin của route này
+  //     feature: 'guardArticles',
+  //     permissions: 'articles-read'
+  //   },
+  //   // canActivate: [ArticlesGuard],
+  //   canLoad: [ArticlesGuard],
+  // },
   {
-    path: "guardArticles",
-    loadChildren: () => import('./router-guard/guard-article/guard-article.module').then(m => m.GuardArticleModule),
-    data: { //có thêm thông tin của route này
-      feature: 'guardArticles',
-      permissions: 'articles-read'
-    },
-    // canActivate: [ArticlesGuard],
-    canLoad: [ArticlesGuard],
+    path: 'sign-in',
+    component: SignInComponent
   },
-
+  {
+    path: 'sign-in-rf',
+    component: SignInRfComponent
+  }
   // redirect
   // {
   //   path: '',
@@ -60,8 +69,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  // imports: [RouterModule.forRoot(routes)],
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
