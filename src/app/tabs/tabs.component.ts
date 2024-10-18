@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class TabsComponent {
   currentIndex = 0;
+  showTab4 = true;
 }

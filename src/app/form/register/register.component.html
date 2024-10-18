@@ -1,0 +1,38 @@
+<div class="container">
+    <form class="register-form"
+        [formGroup]="registerForm"
+        autocomplete="off"
+        (ngSubmit)="formSubmit$.next(true)"
+    >
+    <!-- (ngSubmit)="submitForm()" -->
+        <h2>Register</h2>
+        <div class="row-control">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="username"/>
+            </mat-form-field>
+            <pre>{{ registerForm.get("username")?.errors | json }}</pre>
+        </div>
+        <div class="row-control">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password"/>
+            </mat-form-field>
+            <pre>{{ registerForm.get("password")?.errors | json }}</pre>
+        </div>
+        <div class="row-control">
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword"/>
+
+            </mat-form-field>
+            <pre>{{ registerForm.get("confirmPassword")?.errors | json }}</pre>
+        </div>
+        <div class="row-control row-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">
+                Register
+            </button>
+            <pre>{{ registerForm.value | json }}</pre>
+        </div>
+    </form>
+</div>

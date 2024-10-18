@@ -28,7 +28,7 @@ export class ArticleResolver implements Resolve<Article> {
                     this.redirectToNoArticle();
                 }
             }),
-            filter(article => !!article), // Loại bỏ các giá trị null hoặc undefined
+            filter((article): article is Article => !!article), // Loại bỏ các giá trị null hoặc undefined
             catchError(() => {
                 this.redirectToNoArticle();
                 return EMPTY; // Trong trường hợp lỗi, điều hướng và trả về EMPTY

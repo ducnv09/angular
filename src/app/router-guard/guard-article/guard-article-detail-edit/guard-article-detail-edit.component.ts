@@ -27,7 +27,7 @@ export class GuardArticleDetailEditComponent implements CheckDeactivate {
     this.form$ = this.route.params.pipe(
       pluck('slug'),
       switchMap(slug => this.articleService.getArticle(slug)), // Loại bỏ các giá trị null hoặc undefined, đảm bảo rằng chỉ bài viết hợp lệ mới được xử lý.
-      filter(article => !!article),
+      filter((article): article is Article => !!article),
       switchMap(article => of(this.initForm(article)))
     );
   }

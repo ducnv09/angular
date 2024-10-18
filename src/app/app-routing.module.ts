@@ -8,6 +8,7 @@ import { GuardHomeComponent } from './router-guard/guard-home/guard-home.compone
 import { ArticlesGuard } from './router-guard/guard/articles.guard';
 import { SignInComponent } from './form/sign-in/sign-in.component';
 import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
+import { RegisterComponent } from './form/register/register.component';
 
 const routes: Routes = [
   // {
@@ -54,11 +55,15 @@ const routes: Routes = [
   // },
   {
     path: 'sign-in',
-    component: SignInComponent
+    component: SignInComponent,
   },
   {
     path: 'sign-in-rf',
-    component: SignInRfComponent
+    component: SignInRfComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   }
   // redirect
   // {

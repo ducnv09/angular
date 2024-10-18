@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-let _count = 1; 
+let _count = 1;
 
 @Component({
   selector: 'app-counter',
@@ -8,6 +8,5 @@ let _count = 1;
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
-  count = _count++; //khi component được tọa mới bởi Angular thì biến tự tăng
-  
+  count = _count++;
 }

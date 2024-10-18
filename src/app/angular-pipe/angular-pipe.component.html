@@ -1,0 +1,46 @@
+<p>{{ currentDate | date }}</p>
+<p>{{ currentDate | date:'shortDate' }}</p>
+<p>{{ currentDate | date:'mediumDate' }}</p>
+<p>{{ currentDate | date:'fullDate' }}</p>
+<p>{{ currentDate | date:'yyyy/MM/dd' }}</p>
+
+<p>{{ 'Chau Tran' | lowercase }}</p>
+<p>{{ 'Chau Tran' | uppercase }}</p>
+
+<p>{{ 250 | currency }}</p>
+<p>{{ 350000 | currency:'VND' }}</p>
+
+<!-- hiển thị 3 số thập phân -->
+<p>{{ 2.24123123 | number }}</p> 
+<p>{{ 2.24123123 | number:'1.1-4' }}</p> 
+
+<p>{{ 0.57 | percent }}</p>
+
+<p>{{ currentDate | json }}</p>
+
+<p>{{ user | json }}</p>
+
+<!-- <p>{{ time }}</p> -->
+
+<!-- <p>{{ interval$ | async }}</p> -->
+
+<p>{{ addr.address1 + " " +
+      addr.address2 + " " +
+      addr.city + " " +
+      addr.state + " " + 
+      addr.zip + " " +
+      addr.country}}</p>
+
+<p>{{ formatAddress(addr) }}</p>
+<p>{{ addr | formatAddress:'par' }}</p>
+
+Full user list: 
+<ul>
+    <li *ngFor="let user of users">{{ user.name }} - {{ user.age }} </li>
+</ul>
+Full user list: 
+<ul>
+    <li *ngFor="let user of users | adult">{{ user.name }} - {{ user.age }} </li>
+</ul>
+
+<button (click)="addUser()">Them user</button>

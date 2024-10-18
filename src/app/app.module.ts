@@ -24,7 +24,6 @@ import { TabGroupComponent } from './tabs/tab-group/tab-group.component';
 import { TabPanelComponent } from './tabs/tab-panel/tab-panel.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabBsGroupComponent } from './tabs/tab-bs-group/tab-bs-group.component';
-import { CounterComponent } from './content-child/counter/counter.component';
 import { NgRouterComponent } from './ng-router/ng-router.component';
 import { HomeComponent } from './ng-router/home/home.component';
 import { ChildHomeComponent } from './ng-router/home/child-home/child-home.component';
@@ -44,6 +43,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
+import { RegisterComponent } from './form/register/register.component';
+import { ContentChildComponent } from './content-child/content-child.component';
+import { CounterComponent } from './content-child/counter/counter.component';
+import { TabContentDirective } from './tabs/tab-panel/tab-content.directive';
+import { AngularPipeComponent } from './angular-pipe/angular-pipe.component';
+import { FormatAddressPipe } from './angular-pipe/format-pipe.pipe';
+import { AdultPipe } from './angular-pipe/adult.pipe';
 
 @NgModule({
   declarations: [
@@ -65,7 +71,6 @@ import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
     TabGroupComponent,
     TabPanelComponent,
     TabBsGroupComponent,
-    CounterComponent,
     NgRouterComponent,
     HomeComponent,
     ChildHomeComponent,
@@ -78,6 +83,13 @@ import { SignInRfComponent } from './form/sign-in-rf/sign-in-rf.component';
     FormComponent,
     SignInComponent,
     SignInRfComponent,
+    RegisterComponent,
+    ContentChildComponent,
+    CounterComponent,
+    TabContentDirective,
+    AngularPipeComponent,
+    FormatAddressPipe,
+    AdultPipe
   ],
   imports: [
     BrowserModule,

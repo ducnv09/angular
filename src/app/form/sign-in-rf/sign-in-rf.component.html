@@ -7,17 +7,22 @@
                 <input matInput placeholder="Username" formControlName="username">
             </mat-form-field>
         </div>
+        <pre>{{ signInForm.controls.username.errors | json }}</pre>
+
         <div class="row-control">
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
                 <input type="password" matInput placeholder="Password" [formControl]="signInForm.controls.password"/>
             </mat-form-field>
         </div>
+        <pre>{{ signInForm.controls.password.errors | json }}</pre>
+
         <div class="row-control">
             <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
         </div>
+
         <div class="row-control row-actions">
-            <button mat-raised-button color="primary" type="submit">Sign in</button>
+            <button [disabled]="signInForm.invalid" mat-raised-button color="primary" type="submit">Sign in</button>
         </div>
     </form>
     <pre>{{ signInForm.value | json }}</pre>
