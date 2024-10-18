@@ -42,20 +42,7 @@ $my-theme: mat.define-light-theme(
 
 // $azure-palette: mat.define-palette(mat.$blue-palette, 500, 300, 700);
 
-// $custom-theme: mat.define-light-theme(
-//     (
-//         color: (
-//             theme-type: light,
-//             primary: mat.$blue-palette,
-//             use-system-variables: true,
-//         )
-//     )
-// );
 
-// html {
-//     @include mat.core-theme($custom-theme);
-
-// }
 
 @include mat.all-component-themes($my-theme);
 
