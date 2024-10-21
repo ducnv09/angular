@@ -9,8 +9,11 @@
         <button mat-icon-button 
             class="settings-button" 
             (click)="showOptions.set(true)"
+            [style.background-color]="data().backgroundColor ?? 'var(--sys-surface-bright)'"
             [style.--mdc-icon-button-icon-color]="data().color ?? 'inherit'"
+            
         >
+        <!-- [style.color]="data().color ?? 'inherit'" -->
             <mat-icon>settings</mat-icon>
         </button>
     </div>

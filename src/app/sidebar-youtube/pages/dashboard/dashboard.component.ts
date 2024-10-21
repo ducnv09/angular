@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 
 // material
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { CdkDragDrop, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-dr
 
 // animate grid
 import { wrapGrid } from 'animate-css-grid';
+import { WidgetsPanelComponent } from "./widgets-panel/widgets-panel.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -32,8 +33,9 @@ import { wrapGrid } from 'animate-css-grid';
     MatMenuModule,
     MatButtonToggleModule,
     CdkDropList,
-    CdkDropListGroup
-  ],
+    CdkDropListGroup,
+    WidgetsPanelComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -60,5 +62,12 @@ export class DashboardComponent implements OnInit{
   drop(event: CdkDragDrop<number, any>) {
     const { previousContainer, container } = event;
     this.store.updateWidgetPosition(previousContainer.data, container.data);
+  }
+
+  widgetsOpen = signal(false);
+  
+  widgetPutBack(event: CdkDragDrop<number, any>) {
+    const { previousContainer } = event;  
+    this.store.removeWidget(previousContainer.data);
   }
 }

@@ -5,6 +5,7 @@
 mat-toolbar {
     position: relative;
     z-index: 5;
+    --mat-toolbar-container-background-color: var(--sys-surface-container-low);
 }
 
 mat-sidenav-container {

@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, model, signal } from '@angular/core';
 
 // material
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +27,7 @@ import { AuthService } from '../login2/service/auth-service.service';
 })
 export class SidebarYoutubeComponent {
   collapsed = signal(false);
+  // collapsed = model.required<boolean>();
 
   sidenavWidth = computed(() => this.collapsed() ? '67px' : '250px');
 
@@ -37,4 +38,11 @@ export class SidebarYoutubeComponent {
   handleLogout() {
     this.authService.logout();
   }
+
+  darkMode = signal(false);
+
+  setDarkMode = effect(() => {
+    document.documentElement.classList.toggle('dark', this.darkMode());
+  })
+
 }
