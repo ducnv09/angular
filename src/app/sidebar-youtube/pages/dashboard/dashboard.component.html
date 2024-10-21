@@ -1,30 +1,47 @@
 <!-- <router-outlet></router-outlet> -->
-
-<div class="header">
-    <h2>Dashboard</h2>
-    <button mat-raised-button [mat-menu-trigger-for]="widgetMenu">
-        <mat-icon>add_circle</mat-icon>
-        Add widget
-    </button>
-    <mat-menu #widgetMenu="matMenu">
-        @for (widget of store.widgetsToAdd(); track widget.id) {
-            <button mat-menu-item (click)="store.addWidget(widget)" style="width: 9rem;">
-                {{ widget.label }}
-            </button>
-        } 
-        @empty {
-            <button mat-menu-item disabled style="width: 9rem;">
-                No widget to add
-            </button>    
+<div cdkDropListGroup>
+    <div class="header">
+        <h2>Dashboard</h2>
+        <!-- <button mat-raised-button [mat-menu-trigger-for]="widgetMenu"> -->
+        <button mat-raised-button (click)="widgetsOpen.set(!widgetsOpen())">
+            @if (widgetsOpen()) {
+                <mat-icon>close</mat-icon>
+            } @else {
+                <mat-icon>add_circle</mat-icon>
+            }
+    
+            Widgets
+        </button>
+    
+        @if (widgetsOpen()) {
+            <app-widgets-panel cdkDropList (cdkDropListDropped)="widgetPutBack($event)"></app-widgets-panel>
         }
-    </mat-menu>
+        <!-- <mat-menu #widgetMenu="matMenu">
+            @for (widget of store.widgetsToAdd(); track widget.id) {
+                <button mat-menu-item (click)="store.addWidget(widget)" style="width: 9rem;">
+                    {{ widget.label }}
+                </button>
+            } 
+            @empty {
+                <button mat-menu-item disabled style="width: 9rem;">
+                    No widget to add
+                </button>    
+            }
+        </mat-menu> -->
+    </div>
+    
+    <!-- cdkDropListGroup: tất cả các danh sách cdk nằm trong vùng chứa -->
+    <!-- <div #dashboard class="dashboard-widgets" cdkDropListGroup> -->
+    <div #dashboard class="dashboard-widgets">
+        @for (w of store.addedWidgets(); track w.id) {
+        <!-- @for (w of store.addedWidgets(); track w.id) { -->
+            <app-widget [data]="w" 
+                cdkDropList 
+                (cdkDropListDropped)="drop($event)" 
+                [cdkDropListData]="w.id">
+            </app-widget>
+        }
+    </div>
 </div>
 
-<!-- cdkDropListGroup: tất cả các danh sách cdk nằm trong vùng chứa -->
-<div #dashboard class="dashboard-widgets" cdkDropListGroup>
-    @for (w of store.addedWidgets(); track w.id) {
-    <!-- @for (w of store.addedWidgets(); track w.id) { -->
-        <app-widget [data]="w" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="w.id"></app-widget>
-    }
-</div>
 
