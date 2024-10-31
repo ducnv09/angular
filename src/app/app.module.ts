@@ -50,6 +50,8 @@ import { TabContentDirective } from './tabs/tab-panel/tab-content.directive';
 import { AngularPipeComponent } from './angular-pipe/angular-pipe.component';
 import { FormatAddressPipe } from './angular-pipe/format-pipe.pipe';
 import { AdultPipe } from './angular-pipe/adult.pipe';
+import { AngularRxjsComponent } from './angular-rxjs/angular-rxjs.component';
+
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import { AdultPipe } from './angular-pipe/adult.pipe';
     TabContentDirective,
     AngularPipeComponent,
     FormatAddressPipe,
-    AdultPipe
+    AdultPipe,
+    AngularRxjsComponent
   ],
   imports: [
     BrowserModule,
