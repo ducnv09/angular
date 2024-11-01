@@ -57,7 +57,6 @@ import { DashboardComponent } from './sidebar-youtube/pages/dashboard/dashboard.
 import { ContentComponent } from './sidebar-youtube/pages/content/content.component';
 import { AnalyticsComponent } from './sidebar-youtube/pages/analytics/analytics.component';
 import { CommentsComponent } from './sidebar-youtube/pages/comments/comments.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
 
 registerLocaleData(localeVi, 'vi-VN')
 
@@ -87,8 +86,7 @@ registerLocaleData(localeVi, 'vi-VN')
     DashboardComponent,
     ContentComponent,
     AnalyticsComponent,
-    CommentsComponent,
-    PortfolioComponent
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
