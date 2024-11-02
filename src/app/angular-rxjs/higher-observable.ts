@@ -1,4 +1,4 @@
-import { concatMap, exhaustMap, fromEvent, interval, map, merge, mergeAll, mergeMap, of, partition, take, tap } from "rxjs";
+import { concatMap, delay, delayWhen, exhaustMap, fromEvent, interval, map, merge, mergeAll, mergeMap, of, partition, take, tap, timeout, timer } from "rxjs";
 
 //Observable<number>
 interval(1000)
@@ -85,3 +85,31 @@ even$.pipe(
     map(val => `I am even times 2: ${val * 2}`),
     tap(val => console.log('after map', val)),
 ).subscribe(console.log);
+
+//delay()
+fromEvent(document, 'click').pipe(delay(1000)).subscribe(console.log);
+
+// click
+// 1s -- MouseEvent
+// click
+// 1s -- MouseEvent
+
+//delayWhen
+fromEvent(document, 'click').pipe(delayWhen(() => timer(1000))).subscribe(console.log);
+// click
+// 1s -- MouseEvent
+// click
+// 1s -- MouseEvent
+
+//finalize 
+// this.loading = true;
+// this.apiService
+//   .get()
+//   .pipe(finalize(() => (this.loading = false)))
+//   .subscribe();
+
+//timeout
+fromEvent(document, 'click').pipe(timeout(2000)).subscribe(console.log);
+
+//trc 2s ko click sẽ hiện thông báo lỗi
+
