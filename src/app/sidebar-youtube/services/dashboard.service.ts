@@ -216,4 +216,21 @@ export class DashboardService {
             this.addedWidgets.set(widgetsParse);
         }
     }
+
+    //thêm vào dashboard từ widget
+    insertWidgetAtPosition(sourceWidgetId: number, destWidgetId: number) {
+        const widgetToAdd = this.widgetsToAdd().find((w) => w.id === sourceWidgetId);
+        if (!widgetToAdd) {
+            return;
+        }
+
+        console.log('dsf', 'sđsf');
+
+        const indexOfDestWidget = this.addedWidgets().findIndex(w => w.id === destWidgetId);
+        const positionToAdd = indexOfDestWidget === -1 ? this.addedWidgets().length : indexOfDestWidget;
+
+        const newWidgets = [...this.addedWidgets()];
+        newWidgets.splice(positionToAdd, 0, widgetToAdd);
+        this.addedWidgets.set(newWidgets);
+    }
 }

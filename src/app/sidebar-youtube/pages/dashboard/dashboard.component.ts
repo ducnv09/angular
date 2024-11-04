@@ -13,7 +13,7 @@ import { SubscribersComponent } from './widgets/subscribers/subscribers.componen
 import { DashboardService } from '../../services/dashboard.service';
 
 // cdk
-import { CdkDragDrop, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop'
+import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop'
 
 // animate grid
 import { wrapGrid } from 'animate-css-grid';
@@ -34,7 +34,8 @@ import { WidgetsPanelComponent } from "./widgets-panel/widgets-panel.component";
     MatButtonToggleModule,
     CdkDropList,
     CdkDropListGroup,
-    WidgetsPanelComponent
+    WidgetsPanelComponent,
+    CdkDrag
 ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -60,7 +61,13 @@ export class DashboardComponent implements OnInit{
   }
 
   drop(event: CdkDragDrop<number, any>) {
-    const { previousContainer, container } = event;
+    const { previousContainer, container, item: { data } } = event;
+
+    if (data) {
+      this.store.insertWidgetAtPosition(data, container.data);
+      return;
+    }
+
     this.store.updateWidgetPosition(previousContainer.data, container.data);
   }
 

@@ -14,7 +14,11 @@
         </button>
     
         @if (widgetsOpen()) {
-            <app-widgets-panel cdkDropList (cdkDropListDropped)="widgetPutBack($event)"></app-widgets-panel>
+            <app-widgets-panel 
+                cdkDropList 
+                (cdkDropListDropped)="widgetPutBack($event)"
+                cdkDrag
+            ></app-widgets-panel>
         }
         <!-- <mat-menu #widgetMenu="matMenu">
             @for (widget of store.widgetsToAdd(); track widget.id) {
@@ -34,13 +38,14 @@
     <!-- <div #dashboard class="dashboard-widgets" cdkDropListGroup> -->
     <div #dashboard class="dashboard-widgets">
         @for (w of store.addedWidgets(); track w.id) {
-        <!-- @for (w of store.addedWidgets(); track w.id) { -->
-            <app-widget [data]="w" 
+            <app-widget 
+                [data]="w" 
                 cdkDropList 
                 (cdkDropListDropped)="drop($event)" 
                 [cdkDropListData]="w.id">
             </app-widget>
         }
+        <div cdkDropList></div>
     </div>
 </div>
 

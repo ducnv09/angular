@@ -4,10 +4,10 @@
         Widgets
     </div>
 
-    @for (widget of store.widgetsToAdd(); track $index) {
-        <div class="widget-box" cdkDrag>
+    @for (widget of store.widgetsToAdd(); track widget.id) {
+        <div class="widget-box" cdkDrag [cdkDragData]="widget">
             {{ widget.label }}
             <div *cdkDragPlaceholder></div>
-        </div>  
+        </div>
     }   
 </div>
