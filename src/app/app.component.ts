@@ -4,10 +4,17 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AngularThree3dComponent } from "./angular-three3d/angular-three3d.component";
 import { AngularRxjsComponent } from "./angular-rxjs/angular-rxjs.component";
+import { SleekFormComponent } from "./sleek-form/sleek-form.component";
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, AngularThree3dComponent, NgtCanvas, AngularRxjsComponent],
+    imports: [
+        RouterOutlet, 
+        AngularThree3dComponent, 
+        NgtCanvas, 
+        AngularRxjsComponent, 
+        SleekFormComponent
+    ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

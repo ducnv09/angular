@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <mat-form-field floatLabel="auto">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName" required>
+            <mat-icon matSuffix>person</mat-icon>
+            @if (form.get('fullName')?.hasError('required')) {
+                <mat-error>Full name is required</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field floatLabel="auto">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-icon matSuffix>email</mat-icon>
+            @if (form.get('email')?.hasError('required')) {
+                <mat-error>Email is required</mat-error>
+            } @else if (form.get('email')?.hasError('email')){
+                <mat-error>Please enter a valid email address</mat-error>
+            }
+        </mat-form-field>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field floatLabel="auto">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone">
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="auto">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+            <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field floatLabel="auto">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" rows="3"></textarea>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="auto">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="select">
+            <mat-option value="pakistan">Pakistan</mat-option>
+            <mat-option value="india">India</mat-option>
+            <mat-option value="us">US</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="form-actions">
+        <button mat-flat-button type="submit">Submit</button>
+    </div>
+</form>
