@@ -4,6 +4,7 @@ import { PlaylistsComponent } from './sidebar-youtube/pages/dashboard/playlists/
 import { ShortsComponent } from './sidebar-youtube/pages/dashboard/playlists/shorts/shorts.component';
 import { MenuItem } from './sidebar-youtube/models/menu-item';
 import { TableTreeComponent } from './table-tree/table-tree.component';
+import { ConverterComponent } from './converter/converter.component';
 
 // const itemToSource = (i: MenuItem): Route => {
 //   const route: Route = {
@@ -59,7 +60,7 @@ export const routes: Routes = [
   },
   {
     path: 'analytics',
-    component: DashboardComponent,
+    component: ConverterComponent,
   },
   {
     path: 'comments',

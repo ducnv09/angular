@@ -1,0 +1,25 @@
+<div>
+    <input type="file" accept=".docx" (change)="onFileSelected($event)">
+</div>
+
+<!-- <iframe *ngIf="pdfUrl" [src]="pdfUrl | safe" width="100%" height="600px"></iframe> -->
+
+<ngx-extended-pdf-viewer
+    *ngIf="pdfUrl"
+    [src]="pdfUrl"
+    [height]="'80vh'"
+    [showBookModeButton]="false"
+    [showDownloadButton]="true"
+    [showHandToolButton]="false"
+    [showOpenFileButton]="false"
+    [showRotateButton]="false"
+    [showHighlightEditor]="false"
+    [showDrawEditor]="false"
+    [showTextEditor]="false"
+    [showPropertiesButton]="false"
+    [showSecondaryToolbarButton]="false"
+    [showSidebarButton]="false"
+    [showUnverifiedSignatures]="true"
+    [textLayer]="true"
+>
+</ngx-extended-pdf-viewer>
